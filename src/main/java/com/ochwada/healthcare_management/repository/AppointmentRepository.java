@@ -2,7 +2,11 @@ package com.ochwada.healthcare_management.repository;
 
 
 import com.ochwada.healthcare_management.model.Appointment;
+import com.ochwada.healthcare_management.model.Status;
 import org.springframework.data.mongodb.repository.MongoRepository;
+
+import java.time.LocalDate;
+import java.util.List;
 
 /**
  * *******************************************************
@@ -29,4 +33,24 @@ public interface AppointmentRepository extends MongoRepository<Appointment, Stri
      * --------------------------------------------------------------
      * ---------------------------------------------------------------------------
      */
+
+    /**
+     * Retrieves all appointments that match the given status.
+     * *
+     * This method uses Spring Data MongoDB’s derived query mechanism to fetch documents from the
+     * "appointments" collection where the {@code status} field equals the provided {@link Status} value.
+     *
+     * @param status the {@link Status} of the appointment (e.g., SCHEDULED, COMPLETED, CANCELLED)
+     * @return a list of {@link Appointment} objects with the specified status
+     */
+    List<Appointment> findAppointmentsByStatus(Status status);
+
+    /**
+     * Finds all appointments scheduled between two dates (inclusive).
+     *
+     * @param startDate the start of the date range
+     * @param endDate the end of the date range
+     * @return list of appointments within the date range
+     */
+    List<Appointment> findAppointmentsBetweenDates(LocalDate startDate, LocalDate endDate);
 }
