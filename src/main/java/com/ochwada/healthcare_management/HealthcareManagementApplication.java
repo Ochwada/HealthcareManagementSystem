@@ -32,6 +32,11 @@ public class HealthcareManagementApplication {
 
 	}
 
+	/**
+	 * Main method that launches the Spring Boot application.
+	 *
+	 * @param args application arguments
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(HealthcareManagementApplication.class, args);
 	}
