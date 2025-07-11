@@ -19,4 +19,14 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface AppointmentRepository extends MongoRepository<Appointment, String> {
  // MongoRepository provides out-of-the-box CRUD methods
+
+    /**
+     * ---------------------------------------------------------------------------
+     * --------------------------------------------------------------
+     * Custom Query:
+     * - Find appointments by status
+     * - Find appointments between dates
+     * --------------------------------------------------------------
+     * ---------------------------------------------------------------------------
+     */
 }

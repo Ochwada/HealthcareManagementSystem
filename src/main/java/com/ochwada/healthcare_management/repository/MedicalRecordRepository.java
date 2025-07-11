@@ -19,4 +19,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface MedicalRecordRepository extends MongoRepository<MedicalRecord, String> {
     // MongoRepository provides out-of-the-box CRUD methods
+
+
 }
