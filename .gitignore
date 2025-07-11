@@ -21,6 +21,7 @@ target/
 
 .idea/
 .mvn/
+.env
 mvnw
 mvnw.cmd
 ### NetBeans ###
