@@ -19,7 +19,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "patient")
+@Document(collection = "patients")
 public class Patient {
     /** Unique identifier for the patient (MongoDB ObjectId).*/
     @Id
@@ -40,7 +40,7 @@ public class Patient {
 
     /** Email address of the patient. Must be a valid format. */
     @NotBlank(message = "Email is required")
-    @Email(message = "Email should be valid")
+    @Email(message = "Invalid email")
     private String email;
 
     /**

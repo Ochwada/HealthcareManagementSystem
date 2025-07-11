@@ -1,6 +1,9 @@
 package com.ochwada.healthcare_management.model;
 
 
+import lombok.*;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * *******************************************************
  * Package: com.ochwada.healthcare_management.model
@@ -12,6 +15,11 @@ package com.ochwada.healthcare_management.model;
  * *******************************************************
  */
 
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Document(collection = "medical_records")
 public class MedicalRecord {
+
+    private String id;
 }
