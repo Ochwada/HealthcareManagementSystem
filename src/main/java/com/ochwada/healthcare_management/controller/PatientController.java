@@ -60,7 +60,7 @@ public class PatientController {
      * @return the saved {@link Patient} object
      */
     @PostMapping("/add-patient")
-    public Patient listAllPatients(@Valid @RequestBody Patient patient) {
+    public Patient addPatients(@Valid @RequestBody Patient patient) {
         return service.addPatient(patient);
     }
 
@@ -98,7 +98,7 @@ public class PatientController {
      * @param patient The updated Patient data received in the request body.
      * @return The updated {@link Patient} object after saving to the database.
      */
-    @PutMapping("update/{id}")
+    @PutMapping("update-{id}")
     public Patient updatePatientById(@PathVariable String id,
                                      @RequestBody Patient patient) {
         return service.updatePatient(id, patient);
@@ -110,7 +110,7 @@ public class PatientController {
      * @param id The unique identifier of the Patient to delete.
      * @return A {@link ResponseEntity} with HTTP status 204 No Content.
      */
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete-{id}")
     public ResponseEntity<Void> deletePatientById(@PathVariable String id){
         service.deletePatient(id);
         return ResponseEntity.noContent().build();

@@ -15,7 +15,7 @@ import java.util.*;
  * File: PatientService.java
  * Author: Ochwada
  * Date: Friday, 11.Jul.2025, 2:36 PM
- * Description: Service layer for Patient operations. Service class for handling business logic related to products.
+ * Description: Service layer for Patient operations. Service class for handling business logic related to patients.
  * Objective:
  * *******************************************************
  */
