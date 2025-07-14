@@ -96,8 +96,11 @@ public class AppointmentService {
      * 4.
      * Retrieves all appointments that match the given status.
      *
-     * @param status the {@link Status} of the appointment (e.g., SCHEDULED, COMPLETED, CANCELLED)
-     * @return a list of {@link Appointment} objects with the specified status if found or an empty list
+     * <p>This method uses Spring Data MongoDB's derived query mechanism to fetch appointments
+     * whose {@link Appointment #status} matches the provided {@link Status} enum.
+     *
+     * @param status the status of the appointment (e.g., SCHEDULED, COMPLETED, CANCELLED)
+     * @return a list of {@link Appointment} objects with the specified status, or an empty list if none found
      */
     public List<Appointment> getAppointmentByStatus(Status status) {
         return repository.findAppointmentsByStatus(status);
@@ -105,11 +108,11 @@ public class AppointmentService {
 
     /**
      * 5.
-     * Finds an appointment scheduled between two dates (inclusive).
+     * Finds all appointments scheduled between two dates (inclusive).
      *
      * @param startDate the start of the date range
      * @param endDate   the end of the date range
-     * @return an {@link Optional} containing an appointment within the date range, or empty if none found
+     * @return a list of {@link Appointment} objects scheduled within the date range, or an empty list if none found
      */
     public List<Appointment> getAppointmentBetweenDates(LocalDate startDate, LocalDate endDate) {
         return repository.findAppointmentsBetweenDates(startDate, endDate);

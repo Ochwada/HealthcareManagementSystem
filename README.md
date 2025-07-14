@@ -60,13 +60,14 @@ Below are the primary REST endpoints (assuming default `/api` base path):
 ```
 #### 📅 Appointment
 ``` 
-| Method | Endpoint                 | Description                |
-| ------ | ------------------------ | -------------------------- |
-| GET    | `/api/appointments`      | View all appointments      |
-| GET    | `/api/appointments/{id}` | View an appointment by ID  |
-| POST   | `/api/appointments`      | Schedule a new appointment |
-| PUT    | `/api/appointments/{id}` | Modify an appointment      |
-| DELETE | `/api/appointments/{id}` | Cancel an appointment      |
+| Method | Endpoint                             | Description                                                       |
+| ------ | ------------------------------------ | ----------------------------------------------------------------- |
+| POST   | `/api/appointments`                  | Schedule a new appointment                                        |
+| GET    | `/appointments/doctors/{doctorId}`   | View all appointments from a doctor                               |
+| GET    | `/appointments/patients/{patientId}` | View all appointments from a patient                              |
+| GET    | `/appointments/status/{status}`      | Retrieves all appointments with a specific status.                |
+| GET    | `/appointments/range}`               | Retrieves all appointments scheduled between two dates (inclusive)|
+
 ```
 
 #### 📄 Medical Records
