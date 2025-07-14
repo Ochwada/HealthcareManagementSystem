@@ -75,10 +75,7 @@ Below are the primary REST endpoints (assuming default `/api` base path):
 | Method | Endpoint                    | Description                |
 | ------ | --------------------------- | -------------------------- |
 | GET    | `/api/medical-records`      | Get all medical records    |
-| GET    | `/api/medical-records/{id}` | Get a medical record by ID |
 | POST   | `/api/medical-records`      | Add a new medical record   |
-| PUT    | `/api/medical-records/{id}` | Update a medical record    |
-| DELETE | `/api/medical-records/{id}` | Delete a medical record    |
 ```
 ## 🗂️ Package Structure
 
