@@ -124,7 +124,7 @@ public class DoctorService {
      * @param speciality the medical speciality to filter by
      * @return a list of {@link Doctor} objects with the specified speciality
      */
-    public List<Doctor> getDoctorsBySpeciality(String speciality) {
+    public Optional<Doctor> getDoctorsBySpeciality(String speciality) {
         return repository.findDoctorsBySpeciality(speciality);
     }
 
@@ -137,7 +137,7 @@ public class DoctorService {
      * @param years the minimum number of years of experience
      * @return a list of {@link Doctor} objects with more than the given experience
      */
-    public List<Doctor> getDoctorWithExperienceMoreThan(int years) {
+    public Optional<Doctor> getDoctorWithExperienceMoreThan(int years) {
         return repository.findDoctorsExperienceGreaterThan(years);
     }
 

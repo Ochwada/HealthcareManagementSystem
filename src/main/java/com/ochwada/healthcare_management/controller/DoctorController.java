@@ -2,7 +2,6 @@ package com.ochwada.healthcare_management.controller;
 
 
 import com.ochwada.healthcare_management.model.Doctor;
-import com.ochwada.healthcare_management.model.Patient;
 import com.ochwada.healthcare_management.service.DoctorService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -84,7 +83,7 @@ public class DoctorController {
      * @param id the unique identifier of the doctor to retrieve
      * @return an {@link Optional} containing the doctor if found, or empty if not found
      */
-    @GetMapping("/found-{id}")
+    @GetMapping("/findById-{id}")
     public Optional<Doctor> findDoctorById(@PathVariable String id) {
         return service.findDoctorById(id);
     }
@@ -108,6 +107,7 @@ public class DoctorController {
     }
 
     /**
+     * 5.
      * Deletes a doctor from the system by their unique ID.
      * *
      * This endpoint handles HTTP DELETE requests at {@code /delete-{id}}. It extracts the {@code id} from the URL using
@@ -123,6 +123,43 @@ public class DoctorController {
     public ResponseEntity<Void> deleteDoctorById(@PathVariable String id) {
         service.deleteDoctor(id);
         return ResponseEntity.noContent().build();
+    }
+
+    /**
+     * ---------------------------------------------------------------------------
+     * --------------------------------------------------------------
+     * Custom Query:
+     * - Find doctors by specialty
+     * - Find doctors with experience > X years
+     * --------------------------------------------------------------
+     * ---------------------------------------------------------------------------
+     */
+    /**
+     * 6.
+     * Retrieves a list of doctors by their speciality.
+     * The {@code speciality} is extracted from the URL using {@link PathVariable} and passed to the service
+     * layer to look up the corresponding {@link Doctor}.
+     *
+     * @param speciality the speciality of the doctor to be retrieved
+     * @return an {@link Optional containing the doctors if found or empty if not found}
+     */
+    @GetMapping("/findBySpeciality-{speciality}")
+    public Optional<Doctor> findDoctorBySpeciality(@PathVariable String speciality) {
+        return service.getDoctorsBySpeciality(speciality);
+    }
+
+    /**
+     * 7.
+     * Retrieves a list of doctors with more than a given number of experience years
+     * The {@code yearsOfExperience} is extracted from the URL using {@link PathVariable} and passed to the service
+     * layer to look up the corresponding {@link Doctor}.
+     *
+     * @param yearsOfExperience the number of years of experience
+     * @return an {@link Optional containing the doctors if found or empty if not found}
+     */
+    @GetMapping("/experience-{yearsOfExperience}")
+    public Optional<Doctor> findDoctorWithExperienceMoreThan(@PathVariable int yearsOfExperience) {
+        return service.getDoctorWithExperienceMoreThan(yearsOfExperience);
     }
 
 
