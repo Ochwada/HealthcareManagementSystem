@@ -2,7 +2,6 @@ package com.ochwada.healthcare_management.service;
 
 
 import com.ochwada.healthcare_management.model.Doctor;
-import com.ochwada.healthcare_management.model.Status;
 import com.ochwada.healthcare_management.repository.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -138,7 +137,7 @@ public class DoctorService {
      * @return a list of {@link Doctor} objects with more than the given experience
      */
     public List<Doctor> getDoctorWithExperienceMoreThan(int years) {
-        return repository.findDoctorsExperienceGreaterThan(years);
+        return repository.findByYearsOfExperienceGreaterThan(years);
     }
 
 

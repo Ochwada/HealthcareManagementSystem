@@ -67,5 +67,6 @@ public interface AppointmentRepository extends MongoRepository<Appointment, Stri
      * @param endDate   the end of the date range
      * @return a list of appointments within the date range, or an empty list if none found
      */
-    List<Appointment> findAppointmentsBetweenDates(LocalDate startDate, LocalDate endDate);
+    List<Appointment> findByDateBetween(LocalDate startDate, LocalDate endDate);
+
 }

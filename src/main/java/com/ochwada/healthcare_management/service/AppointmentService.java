@@ -115,6 +115,6 @@ public class AppointmentService {
      * @return a list of {@link Appointment} objects scheduled within the date range, or an empty list if none found
      */
     public List<Appointment> getAppointmentBetweenDates(LocalDate startDate, LocalDate endDate) {
-        return repository.findAppointmentsBetweenDates(startDate, endDate);
+        return repository.findByDateBetween(startDate, endDate);
     }
 }

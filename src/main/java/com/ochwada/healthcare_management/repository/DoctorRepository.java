@@ -46,6 +46,6 @@ public interface DoctorRepository extends MongoRepository<Doctor, String> {
      * @param years years of experience
      * @return a list of doctors with more than the give years of experience.
      */
-    List<Doctor> findDoctorsExperienceGreaterThan(int years);
+    List<Doctor> findByYearsOfExperienceGreaterThan(int years);
 
 }

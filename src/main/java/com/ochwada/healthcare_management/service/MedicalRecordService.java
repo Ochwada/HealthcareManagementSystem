@@ -45,22 +45,22 @@ public class MedicalRecordService {
      */
     /**
      * 1.
-     * Create a medical record - record
+     * Creates a new medical record and stores it in the database.
      *
-     * @param record a Medical record to insert.
-     * @return inserted medical record
+     * @param record the {@link MedicalRecord} object to insert
+     * @return the inserted {@link MedicalRecord} object
      */
-    public MedicalRecord addMedicalRecordRepository(MedicalRecord record) {
+    public MedicalRecord addMedicalRecord(MedicalRecord record) {
         return repository.insert(record);
     }
 
     /**
      * 2.
-     * Retrieve all Medical records
+     * Retrieves all medical records stored in the database.
      *
-     * @return a List  of all Medical records objects stored in the database.
+     * @return a list of all {@link MedicalRecord} objects
      */
-    public List<MedicalRecord> getAllMedicalRecordRepositoryForPatient() {
+    public List<MedicalRecord> getAllMedicalRecords() {
         return repository.findAll();
     }
 
