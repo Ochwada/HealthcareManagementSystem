@@ -38,7 +38,7 @@ public interface DoctorRepository extends MongoRepository<Doctor, String> {
      * @param speciality  speciality of the doctor e.g. "Cardiology", "Dermatology", "Pediatrics", etc.
      * @return list of Doctors with a given speciality.
      */
-    Optional<Doctor> findDoctorsBySpeciality(String speciality);
+    List<Doctor> findDoctorsBySpeciality(String speciality);
 
     /**
      * Find doctors with years of experience greater than a given year.
@@ -46,6 +46,6 @@ public interface DoctorRepository extends MongoRepository<Doctor, String> {
      * @param years years of experience
      * @return a list of doctors with more than the give years of experience.
      */
-    Optional<Doctor> findDoctorsExperienceGreaterThan(int years);
+    List<Doctor> findDoctorsExperienceGreaterThan(int years);
 
 }

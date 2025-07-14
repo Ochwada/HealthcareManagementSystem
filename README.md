@@ -34,23 +34,28 @@ Below are the primary REST endpoints (assuming default `/api` base path):
 
 #### 👤 Patient
 ```
-| Method | Endpoint             | Description            |
-| ------ | -------------------- | ---------------------- |
-| GET    | `/api/patients`      | List all patients      |
-| GET    | `/api/patients/{id}` | Get a patient by ID    |
-| POST   | `/api/patients`      | Create a new patient   |
-| PUT    | `/api/patients/{id}` | Update patient details |
-| DELETE | `/api/patients/{id}` | Delete a patient       |
+| Method | Endpoint                             | Description                             |
+| ------ | ------------------------------------ | --------------------------------------- |
+| GET    | `/api/patients`                      | List all patients                       |
+| GET    | `/api/patients/findById-{id}}`       | Get a patient by ID                     |
+| POST   | `/api/patients/add-patient`          | Create a new patient                    |
+| PUT    | `/api/patients/{id}`                 | Update patient details                  |
+| DELETE | `/api/patients/delete-{id}           | Delete a patient                        |
+| GET    |  `/api/patients/greaterThan-{age}`   | Find patients with age greater than x   |
+| GET    |  `/api/patients/gender-{gender}}`    | Find patients with given gender         |
+
 ```
 #### 🧑‍⚕️ Doctor
 ```
-| Method | Endpoint            | Description           |
-| ------ | ------------------- | --------------------- |
-| GET    | `/api/doctors`             | List all doctors      |
-| GET    | `/api/doctors/findById-{id}`   | Get a doctor by ID    |
-| POST   | `/api/doctors/add-doctor`  | Add a new doctor      |
-| PUT    | `/api/doctors/update-{id}` | Update doctor profile |
-| DELETE | `/api/doctors/delete-{id}` | Remove a doctor       |
+| Method | Endpoint                                       | Description                         |
+| ------ | ---------------------------------------------- | ----------------------------------- |
+| GET    | `/api/doctors`                                 | List all doctors                    |
+| GET    | `/api/doctors/findById-{id}`                   | Get a doctor by ID                  |
+| POST   | `/api/doctors/add-doctor`                      | Add a new doctor                    |
+| PUT    | `/api/doctors/update-{id}`                     | Update doctor profile               |
+| DELETE | `/api/doctors/delete-{id}`                     | Remove a doctor                     |
+| GET    | `/api/doctors/findBySpeciality-{speciality}`   | Find doctors by speciality          |
+| GET    | `/api/doctors/experience-{yearsOfExperience}`  | Find doctors by years of Experience |
 
 ```
 #### 📅 Appointment

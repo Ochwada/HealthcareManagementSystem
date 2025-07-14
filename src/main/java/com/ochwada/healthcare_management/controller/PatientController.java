@@ -86,7 +86,7 @@ public class PatientController {
      * @param id the unique ID of the patient to retrieve, extracted from the URL path
      * @return an {@link Optional} containing the patient if found, or empty if not
      */
-    @GetMapping("/found-{id}")
+    @GetMapping("/findById-{id}")
     public Optional<Patient> findPatientById(@PathVariable String id) {
         return service.findPatientById(id);
     }
@@ -134,7 +134,7 @@ public class PatientController {
      * @param age the minimum age to filter by (exclusive)
      * @return a list of {@link Patient} objects older than the specified age
      */
-    @GetMapping("/greaterThan/{age}")
+    @GetMapping("/greaterThan-{age}")
     public List<Patient> getPatientsByAgeGreaterThan(@PathVariable int age){
         return service.getPatientsOlderThan(age);
     }

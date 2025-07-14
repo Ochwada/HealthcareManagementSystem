@@ -144,7 +144,7 @@ public class DoctorController {
      * @return an {@link Optional containing the doctors if found or empty if not found}
      */
     @GetMapping("/findBySpeciality-{speciality}")
-    public Optional<Doctor> findDoctorBySpeciality(@PathVariable String speciality) {
+    public List<Doctor> findDoctorBySpeciality(@PathVariable String speciality) {
         return service.getDoctorsBySpeciality(speciality);
     }
 
@@ -158,7 +158,7 @@ public class DoctorController {
      * @return an {@link Optional containing the doctors if found or empty if not found}
      */
     @GetMapping("/experience-{yearsOfExperience}")
-    public Optional<Doctor> findDoctorWithExperienceMoreThan(@PathVariable int yearsOfExperience) {
+    public List<Doctor> findDoctorWithExperienceMoreThan(@PathVariable int yearsOfExperience) {
         return service.getDoctorWithExperienceMoreThan(yearsOfExperience);
     }
 

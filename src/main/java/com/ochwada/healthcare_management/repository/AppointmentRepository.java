@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * *******************************************************
@@ -22,7 +23,8 @@ import java.util.List;
 
 
 public interface AppointmentRepository extends MongoRepository<Appointment, String> {
- // MongoRepository provides out-of-the-box CRUD methods
+    // MongoRepository provides out-of-the-box CRUD methods
+
 
     /**
      * ---------------------------------------------------------------------------
@@ -33,15 +35,28 @@ public interface AppointmentRepository extends MongoRepository<Appointment, Stri
      * --------------------------------------------------------------
      * ---------------------------------------------------------------------------
      */
+    /**
+     * Retrieves all appointments for a specific patient by their ID.
+     *
+     * @param patientId the patient’s ID
+     * @return a list of {@link Appointment} objects, or an empty list if none found
+     */
+    List<Appointment> findByPatientId(String patientId);
+
+    /**
+     * Retrieves all appointments for a specific doctor by their ID.
+     *
+     * @param doctorId the doctor's ID
+     * @return a list of {@link Appointment} objects, or an empty list if none found
+     */
+    List<Appointment> findByDoctorId(String doctorId);
+
 
     /**
      * Retrieves all appointments that match the given status.
-     * *
-     * This method uses Spring Data MongoDB’s derived query mechanism to fetch documents from the
-     * "appointments" collection where the {@code status} field equals the provided {@link Status} value.
      *
      * @param status the {@link Status} of the appointment (e.g., SCHEDULED, COMPLETED, CANCELLED)
-     * @return a list of {@link Appointment} objects with the specified status
+     * @return a list of {@link Appointment} objects with the specified status, or an empty list if none found
      */
     List<Appointment> findAppointmentsByStatus(Status status);
 
@@ -49,8 +64,8 @@ public interface AppointmentRepository extends MongoRepository<Appointment, Stri
      * Finds all appointments scheduled between two dates (inclusive).
      *
      * @param startDate the start of the date range
-     * @param endDate the end of the date range
-     * @return list of appointments within the date range
+     * @param endDate   the end of the date range
+     * @return a list of appointments within the date range, or an empty list if none found
      */
     List<Appointment> findAppointmentsBetweenDates(LocalDate startDate, LocalDate endDate);
 }
